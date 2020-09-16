@@ -3,42 +3,64 @@ import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import './Map.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import MapData from "./MapData.json";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFtYmRhbGFiczI1ZWNvc29hcCIsImEiOiJja2VhZWRhOG4wNmU5MnNxZXQ0bmhxZnU3In0.zWyuwunBSy51dulZG9gowQ';
 
 function MapMap() {
   useEffect(() => {
+    // Snippet below is to initialize the map
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/lambdalabs25ecosoap/ckeaib2n30b4f19mq6mj2dsq3', // stylesheet location
-      center: [-74.5, 40], // starting position [lng, lat]
+      center: [-75.5, 45.3], // starting position [lng, lat]
       zoom: 9 // starting zoom
     });
 
-    map.addControl(
-      new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
-      })
-    );
+    // /*-------------- Inside Search-Bar functionality START --------------*/
+    // map.addControl(
+    //   new MapboxGeocoder({
+    //   accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl
+    //   })
+    // );
+    // /*-------------- Inside Search-Bar functionality END --------------*/
 
-    var geocoder = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
-    });
+    // /*-------------- Outside Search-Bar functionality START --------------*/
+    // var geocoder = new MapboxGeocoder({
+    //   accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl
+    // });
+    // geocoder.onAdd(map);
+    // geocoder.addTo('.geocoder');
+    // /*-------------- Outside Search-Bar functionality END --------------*/
 
-    geocoder.onAdd(map);
-       
-    geocoder.addTo('.geocoder');
+    // /*-------------- Track user functionality START --------------*/
+    // map.addControl(
+    //   new mapboxgl.GeolocateControl({
+    //   positionOptions: {
+    //   enableHighAccuracy: true
+    //   },
+    //   trackUserLocation: true
+    //   })
+    // );
+    // /*-------------- Track user functionality END --------------*/
 
-    map.addControl(
-      new mapboxgl.GeolocateControl({
-      positionOptions: {
-      enableHighAccuracy: true
-      },
-      trackUserLocation: true
-      })
-    );
+    /*-------------- Marker functionality START --------------*/
+    // var marker = new mapboxgl.Marker()
+    //   .setLngLat([-74.5, 40]) // [lng, lat]
+    //   .addTo(map);
+    /*-------------- Marker functionality END --------------*/
+
+    console.log("This is MapData: ", MapData.features);
+    MapData.features.map(marker => {
+      var marker = new mapboxgl.Marker()
+      .setLngLat([marker.geometry.coordinates[0], marker.geometry.coordinates[1]]) // [lng, lat]
+      .addTo(map);
+      // return(
+
+      // );
+    })
   }, []);
 
   return (
