@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import './Map.css';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import MapData from "./MapData.json";
 import img from "../media/penrose-triangle.png"
 
@@ -58,11 +58,14 @@ function MapMap() {
       var el = document.createElement("img");
       el.src = img
       el.className= "markerStyles"
+      el.onclick = () => {
+        console.log("hi", marker.properties.DESCRIPTION )
+      }
       var popup = new mapboxgl.Popup({ offset: 25 }).setText(marker.properties.DESCRIPTION);
 
       // var marker = new mapboxgl.Marker()     // Substitue for line below if we try adding icons.
       new mapboxgl.Marker({ color: "red", element: el })
-        // .setDraggable(true)
+        // .setDraggable(true) allows for easy draggable markers
         .setPopup(popup)
         .setLngLat([marker.geometry.coordinates[0], marker.geometry.coordinates[1]]) // [lng, lat]
         .addTo(map);
