@@ -4,6 +4,7 @@ import './Map.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import MapData from "./MapData.json";
+import img from "../media/penrose-triangle.png"
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFtYmRhbGFiczI1ZWNvc29hcCIsImEiOiJja2VhZWRhOG4wNmU5MnNxZXQ0bmhxZnU3In0.zWyuwunBSy51dulZG9gowQ';
 
@@ -53,18 +54,18 @@ function MapMap() {
     /*-------------- Marker functionality END --------------*/
 
     console.log("This is MapData: ", MapData.features);
-    MapData.features.map(marker => {
+    MapData.features.forEach(marker => {
+      var el = document.createElement("img");
+      el.src = img
+      el.className= "markerStyles"
       var popup = new mapboxgl.Popup({ offset: 25 }).setText(marker.properties.DESCRIPTION);
+
       // var marker = new mapboxgl.Marker()     // Substitue for line below if we try adding icons.
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ color: "red", element: el })
         // .setDraggable(true)
         .setPopup(popup)
         .setLngLat([marker.geometry.coordinates[0], marker.geometry.coordinates[1]]) // [lng, lat]
         .addTo(map);
-      
-      // return(
-      //   // <div className="markerDiv">{marker}</div>
-      // );
     })
   }, []);
 

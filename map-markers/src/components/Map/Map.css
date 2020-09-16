@@ -32,9 +32,14 @@ body {
 }
 
 /* Code below changes things inside Markers' popup. */
+/* 
 .mapboxgl-popup-content {
   font-size: 250%;
   padding: 25px;
-  /* letter-spacing: 10px; */
   line-height: 25px;
+} */
+
+.markerStyles {
+  height: 35px;
+  width: 35px;
 }
