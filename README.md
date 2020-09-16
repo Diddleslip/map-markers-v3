@@ -10,11 +10,12 @@
 ### Overall, a productive project which allowed better understanding of MapBox's Markers.
 
 ## Preview of work done:
-### Image of Search-bar inside of Map
-![image](https://user-images.githubusercontent.com/52723004/93210770-2e908180-f72e-11ea-9152-bc066418a5ec.png)
+### Image of map with dynamically rendered map markers.
+![image](https://user-images.githubusercontent.com/52723004/93335214-184cf900-f7f4-11ea-8028-6c5fc0f11da9.png)
+### Image of map a map markers displaying dynamically rendered pop-up info.
+![image](https://user-images.githubusercontent.com/52723004/93335248-23a02480-f7f4-11ea-8cc5-51e5d6584cf7.png)
 
-### Image of Search-bar outside of Map and search recommendation preview
-![image](https://user-images.githubusercontent.com/52723004/93210811-4536d880-f72e-11ea-990b-89018003fe43.png)
+
 
 ## Steps to recreate:
 
