@@ -24,13 +24,15 @@
 npm install mapbox-gl --save
 `
 ### Add these lines to the index.html file:
-`
+```
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-`
+```
+
 ### Add these lines to the App.js file:
-`
+````
 import mapboxgl from 'mapbox-gl';
-`
+````
 ### Choose any example code from the Docs here and adjust to the best fit.
 `
-https://docs.mapbox.com/mapbox-gl-js/example/`
+https://docs.mapbox.com/mapbox-gl-js/example/
+`
