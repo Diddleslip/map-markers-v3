@@ -23,3 +23,18 @@ section {
 body {
   background: lightgray;
 }
+
+.markerDiv {
+  background-image: url("../media/penrose-triangle.png");
+  background-color: #cccccc;
+  height: 400px;
+  width: 4000px;
+}
+
+/* Code below changes things inside Markers' popup. */
+.mapboxgl-popup-content {
+  font-size: 250%;
+  padding: 25px;
+  /* letter-spacing: 10px; */
+  line-height: 25px;
+}

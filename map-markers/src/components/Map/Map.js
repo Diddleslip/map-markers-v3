@@ -54,11 +54,16 @@ function MapMap() {
 
     console.log("This is MapData: ", MapData.features);
     MapData.features.map(marker => {
-      var marker = new mapboxgl.Marker()
-      .setLngLat([marker.geometry.coordinates[0], marker.geometry.coordinates[1]]) // [lng, lat]
-      .addTo(map);
+      var popup = new mapboxgl.Popup({ offset: 25 }).setText(marker.properties.DESCRIPTION);
+      // var marker = new mapboxgl.Marker()     // Substitue for line below if we try adding icons.
+      new mapboxgl.Marker()
+        // .setDraggable(true)
+        .setPopup(popup)
+        .setLngLat([marker.geometry.coordinates[0], marker.geometry.coordinates[1]]) // [lng, lat]
+        .addTo(map);
+      
       // return(
-
+      //   // <div className="markerDiv">{marker}</div>
       // );
     })
   }, []);
